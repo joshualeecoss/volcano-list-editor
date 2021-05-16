@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="416.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="volcanoviewer.AddEruptionController">
+   <children>
+      <HBox layoutX="14.0" layoutY="14.0" prefHeight="370.0" prefWidth="769.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="209.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Volcano">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ComboBox fx:id="volcanoDropdown" onAction="#populateEruptionList" onShown="#onDropdownShown" prefHeight="25.0" prefWidth="210.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="yearField" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Era">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ComboBox fx:id="eraBox" prefHeight="25.0" prefWidth="287.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="VEI">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox alignment="CENTER" prefHeight="23.0" prefWidth="200.0">
+                     <children>
+                        <Slider fx:id="VEISlider" blockIncrement="0.1" max="10.0" prefHeight="14.0" prefWidth="151.0" />
+                        <TextField fx:id="VEIField" prefHeight="25.0" prefWidth="42.0" />
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Classification">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ComboBox fx:id="classificationBox" prefHeight="25.0" prefWidth="353.0" />
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Button fx:id="addEruptionButton" mnemonicParsing="false" onAction="#addEruptionButtonPressed" prefWidth="150.0" text="Add Eruption">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#deleteEruption" prefWidth="150.0" text="Delete Eruption">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Separator>
+            <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="549.0">
+               <children>
+                  <TableView fx:id="eruptionTable" prefHeight="374.0" prefWidth="547.0">
+                    <columns>
+                      <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Year" />
+                        <TableColumn fx:id="eraColumn" prefWidth="95.0" text="Era" />
+                      <TableColumn fx:id="VEIColumn" prefWidth="97.0" text="VEI" />
+                        <TableColumn fx:id="eruptionClassificationColumn" prefWidth="245.0" text="Classification" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
